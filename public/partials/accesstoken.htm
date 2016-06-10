@@ -1,0 +1,83 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-2">
+      <!--Sidebar content-->
+		    <div>
+		    	<h4>{{username}}</h4>
+			    <span>		    
+			    	<img src="/images/subscriber_logo.jpg" alt="Provider Logo" height="100" width="162">   
+			    </span> 	
+		    </div>	          
+    </div>
+    <div class="col-xs-10">
+      <!--Body content-->
+      	<div class="container col-md-6">
+      	<div class="panel panel-default">
+      		<div class="panel-heading">
+      			<h4>Step 2 : Get Access Token</h4>
+      		</div>      	
+      		<div class="panel-body">     
+	      		<form name="accessTokenForm" novalidate>
+	      		<div ng-show="!accessToken.code">
+			    <div class="form-group" ng-class="{ 'has-error' : accessTokenForm.name.$invalid && !accessTokenForm.name.$pristine }">
+			      <div class="left-inner-addon">
+			        <i class="fa fa-envelope"></i>
+			        <!-- Service ID -->
+			          <input type="text" name="appId" class="form-control input-lg" ng-model="accessToken.appId" required placeholder="Service ID *" value="{{accessToken.appId}}">
+			          <span ng-show="accessTokenForm.appId.$invalid && !accessTokenForm.appId.$pristine" class="help-block">
+			          	Service ID must be entered.
+			          </span>           
+			      </div>
+			    </div>
+			    <div class="form-group" ng-class="{ 'has-error' : accessTokenForm.secret.$invalid && !accessTokenForm.secret.$pristine }">
+			      <div class="left-inner-addon">
+			        <i class="fa fa-envelope"></i>
+			        <!-- Service ID -->
+			          <input type="text" name="secret" class="form-control input-lg" ng-model="accessToken.secret" required placeholder="Secret *">
+			          <span ng-show="accessTokenForm.secret.$invalid && !accessTokenForm.secret.$pristine" class="help-block">
+			          	Secret must be entered.
+			          </span>           
+			      </div>
+			    </div>
+			    <div class="form-group" ng-class="{ 'has-error' : accessTokenForm.auth_code.$invalid && !accessTokenForm.auth_code.$pristine }">
+			      <div class="left-inner-addon">
+			        <i class="fa fa-envelope"></i>
+			        <!-- Service ID -->
+			          <input type="text" name="auth_code" class="form-control input-lg" ng-model="accessToken.auth_code" required placeholder="Auth Code*">
+			          <span ng-show="accessTokenForm.auth_code.$invalid && !accessTokenForm.auth_code.$pristine" class="help-block">
+			          	Redirect URI must be entered.
+			          </span>           
+			      </div>
+			    </div>	
+				<div class="tab-pane fade in active text-center" id="pp">
+				  <p><input type="submit" class="btn btn-primary btn-lg btn-block" ng-disabled="accessTokenForm.$invalid" 
+				  				ng-click="submit(accessToken, accessTokenForm)" value="{{(accessToken.msg) ? 'Verify' : ' Get Access Token'}}">
+				  </p>				  
+				</div>			    
+			 </div>
+			 <div ng-show="accessToken.code">
+				<div class="form-group">
+				    <div class="left-inner-addon">
+				        <i class="fa fa-envelope"></i>			    
+			          	<label>Message : </label><label>{{(accessToken.status === 'ok') ? 'Token Verified' : 'Unauthorized'}}</label>
+			        </div>
+			    </div>
+			    <div class="form-group"> 
+			        <div class="left-inner-addon">
+			        	<i class="fa fa-envelope"></i>	
+			          	<label>Redirect URL:</label><label>{{(accessToken.status === 'ok') ? 'accessToken.redirect_url' : 'error'}}</label>
+			        </div>
+			    </div>
+				<div class="tab-pane fade in active text-center" id="pp">
+				  <p>
+						<a href="#/tokenverify/{{username}}" class="btn btn-primary" ng-click="accessToken.code=null">Verify Access Token</a>
+				  </p>				  
+				</div>				  			    
+			  </div>				    		    			    	      		
+	      </form>
+		</div>	      		
+      </div>
+     </div>
+    </div>
+  </div>
+</div>     		

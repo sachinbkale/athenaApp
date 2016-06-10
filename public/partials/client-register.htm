@@ -1,0 +1,107 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <title>Apache Oltu - OAuth V2.0 Client Application</title>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        <link rel='stylesheet' href='/stylesheets/style.css' />    
+  </head>
+
+  <body>
+    <div>
+      <div class="container">
+        <img alt="Apache Oltu - Sample OAuth V2.0 Client Application" src="/images/logo_oltu.png" />
+        <h4>Apache Oltu</h4>
+        <p>Sample OAuth V2.0 Client Application</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="navbar-header">
+        <h4>Dynamic Registration
+        <small>Step 0. Dynamically Register Application</small></h4>
+      </div>
+      
+      <div class="alert alert-danger">Incorrect registration type: null</div>
+      
+
+      <form id="oauthRegParams" role="form" class="form-horizontal" action="http://localhost:8080/athena-api/auth/oauth2ext/register" method="post">
+        <div class="form-group">
+          <label for="registrationType" class="col-sm-3 control-label">Registration Type</label>
+          <div class="col-sm-9">
+            <select id="registrationType" name="registrationType" class="form-control">
+              <option value="push">push</option>
+              <option value="pull">pull</option>
+            </select>
+          </div>
+        </div>
+       <div class="form-group">
+		  <div class="left-inner-addon">
+			  <i class="fa fa-envelope"></i>
+          <label for="name" class="col-sm-3 control-label">Application Name</label>
+          <div class="col-sm-9"><input id="client_name" name="client_name" class="form-control input-lg" type="text" value="The Weather Service"/></div>
+          </div>
+        </div>
+       <div class="form-group">
+		  <div class="left-inner-addon">
+			  <i class="fa fa-envelope"></i>
+          <label for="icon" class="col-sm-3 control-label">Application Id</label>
+          <div class="col-sm-9"><input id="client_id" name="client_id" class="form-control input-lg" type="text" value="3086d1d016747964384cf64dc1e60e8dba4c81"/></div>
+          </div>
+        </div>       
+       <div class="form-group">
+		  <div class="left-inner-addon">
+			  <i class="fa fa-envelope"></i>
+	          <label for="url" class="col-sm-3 control-label">Application URL</label>
+	          <div class="col-sm-9"><input id="client_url" name="client_url" class="form-control input-lg" type="text" value="http://www.weather.com/cities/"/>
+          </div>
+        </div>
+       <div class="form-group">
+		  <div class="left-inner-addon">
+			  <i class="fa fa-envelope"></i>
+	          <label for="description" class="col-sm-3 control-label">Application Description</label>
+	          <div class="col-sm-9"><input id="client_description" name="client_description" class="form-control input-lg" type="text" value="London Metropolitan Weather monitoring"/></div>
+          </div>
+        </div>
+       <div class="form-group">
+		  <div class="left-inner-addon">
+			  <i class="fa fa-envelope"></i>
+	          <label for="redirectUri" class="col-sm-3 control-label">Application Redirect URI</label>
+	          <div class="col-sm-9"><input id="redirect_uri" name="redirect_uri" class="form-control input-lg" type="text" value="/London/56732"/></div>
+		      </div>
+          </div>
+        </div>
+       <div class="form-group">
+		  <div class="left-inner-addon">
+			  <i class="fa fa-envelope"></i>
+	          <label for="icon" class="col-sm-3 control-label">Application Icon URL</label>
+	          <div class="col-sm-9"><input id="icon" name="client_icon" class="form-control input-lg" type="text" value="http://localhost:8080/demo.png"/>
+	          </div>
+		  </div>
+       </div>
+       <div class="form-group">
+		  <div class="left-inner-addon">
+			  <i class="fa fa-envelope"></i>
+	          <label for="icon" class="col-sm-3 control-label">Application Secret</label>
+		          <div class="col-sm-9"><input id="client_secret" name="client_secret" class="form-control input-lg" type="text" value="Cauzp0zw6oP5Bs7Aa1O94m/nStz/9XTpXvftH5YZ56Y="/>
+		      </div>
+          </div>
+        </div>
+       <div class="form-group">
+		  <div class="left-inner-addon">
+			  <i class="fa fa-envelope"></i>
+          <label for="registrationEndpoint" class="col-sm-3 control-label">OAuth Registration Endpoint</label>
+          <div class="col-sm-9"><input id="registrationEndpoint" name="registrationEndpoint" class="form-control input-lg" type="text" value="http://localhost:8080/athena-api/auth/oauth2ext/register"/></div>
+          </div>
+        </div>
+
+        <input id="authzEndpoint" name="authzEndpoint" type="hidden" value=""/>
+        <input id="tokenEndpoint" name="tokenEndpoint" type="hidden" value=""/>
+        <input id="application" name="application" type="hidden" value=""/>
+        <input type="submit" class="btn btn-primary pull-right" value="Register Application" />
+      </form>
+
+    </div>
+  </body>
+</html>

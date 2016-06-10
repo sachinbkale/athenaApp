@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-2">
+      <!--Sidebar content-->
+		<div class="panel-title text-left">
+		<h3>Services</h3>      
+		<strong>
+		    <img src="/images/services_logo.jpg" alt="Provider Logo" height="80" width="114">    
+		</strong>      
+		</div>
+		<div ng-show="{services.length > 0}">
+			<p>You have {{services.length}} registered services.
+		</div>
+    </div>
+    <div class="col-xs-8">
+      <!--Body content-->
+      	<div class="centerBlock  text-center"><h3>OAuth 2.0 Security</h3></div>
+      	<div><p/></div>
+      	<div class='container'>      		
+      		<div class="col-md-5">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					<!-- <div class="centerBlock">Provider</div>-->
+						<h3 class="panel-title text-center" >
+							Register Your Service
+						</h3>
+					</div>
+					<div class="panel-body text-center">
+					<h4>{{username}}</h4><img src="/images/provider_logo.png" alt="Provider Logo" height="55" width="55">  						
+					</div>
+					<div  class="panel-body">
+						<li>Register your service for OAuth 2.0 security</li>
+						<li>This will enable the consumers of your website to access it with token based authorization.</li>
+					</div>
+					<div  class="panel-body text-center">
+						<a href="#/provider/{{username}}" class="btn btn-primary">Register your Service</a>
+					</div>
+				</div>      			     			
+       		</div>
+      		<div class="col-md-5">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					<!-- <div class="centerBlock">Provider</div>-->
+						<h3 class="panel-title text-center">
+							Verify Token Authorization
+						</h3>
+					</div>
+					<div class="panel-body text-center">
+					<img src="/images/subscriber_logo.jpg" alt="Provider Logo" height="50" width="81"> 					
+					</div>
+					
+						<div  class="panel-body text-center">
+							<ul><li>Test the OAuth tokens to be ready for provisioning </li></ul>
+						
+							<div class="btn-group" role="group" aria-label="Basic example">
+								<div>
+									<p>&nbsp;&nbsp;<b>Step 1</b>&nbsp;&nbsp;<a href="#/authorize/{{username}}" class="btn btn-primary custom text-left">Authorize Access </a></p>
+									<p>&nbsp;&nbsp;<b>Step 2</b>&nbsp;&nbsp;<a href="#/accesstoken/{{username}}" class="btn btn-primary custom text-left"> Access Token</a></p>
+									<p>&nbsp;&nbsp;<b>Step 3</b>&nbsp;&nbsp;<a href="#/tokenverify/{{username}}" class="btn btn-primary custom text-left"> Verify Token</a><p>
+								</div>
+							</div>
+						
+						</div>
+						
+					</div>												
+				</div>				
+			</div>      			     			
+       	</div>      		
+      	</div>
+    </div>
+  </div>    		

@@ -1,0 +1,90 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-2">
+      <!--Sidebar content-->
+		<strong>
+		    <img src="/images/subscriber_logo.jpg" alt="Provider Logo" height="100" width="162"> 
+		    <div>
+		    {{username}}
+		    </div>   
+		</strong>      
+    </div>
+    <div class="col-xs-10">
+      <!--Body content-->
+      	<div class="container col-md-6">
+      	<div class="panel panel-default">
+      		<div class="panel-heading">
+	      		<h4>Step 1 :  Get Authorization Code.</h4>
+	      	</div> 
+      		<div class="panel-body">	      		    		
+	      		<form name="authorizeForm" novalidate>
+	      		<div ng-show="!authorize.code">
+			    <div class="form-group" ng-class="{ 'has-error' : authorizeForm.name.$invalid && !authorizeForm.name.$pristine }">
+			      <div class="left-inner-addon">
+			        <i class="fa fa-envelope"></i>
+			        <!-- Service ID -->
+			          <input type="text" name="appId" class="form-control input-lg" ng-model="authorize.appId" required placeholder="Service ID *" value="{{authorize.appId}}">
+			          <span ng-show="authorizeForm.appId.$invalid && !authorizeForm.appId.$pristine" class="help-block">
+			          	Service ID must be entered.
+			          </span>           
+			      </div>
+			    </div>
+			    <div class="form-group" ng-class="{ 'has-error' : authorizeForm.secret.$invalid && !authorizeForm.secret.$pristine }">
+			      <div class="left-inner-addon">
+			        <i class="fa fa-envelope"></i>
+			        <!-- Service ID -->
+			          <input type="text" name="secret" class="form-control input-lg" ng-model="authorize.secret" required placeholder="Secret *">
+			          <span ng-show="authorizeForm.secret.$invalid && !authorizeForm.secret.$pristine" class="help-block">
+			          	Secret must be entered.
+			          </span>           
+			      </div>
+			    </div>
+			    <div class="form-group" ng-class="{ 'has-error' : authorizeForm.redirectUri.$invalid && !authorizeForm.redirectUri.$pristine }">
+			      <div class="left-inner-addon">
+			        <i class="fa fa-envelope"></i>
+			        <!-- Service ID -->
+			          <input type="text" name="redirectUri" class="form-control input-lg" ng-model="authorize.redirectUri" required placeholder="Redirect URI *">
+			          <span ng-show="authorizeForm.redirectUri.$invalid && !authorizeForm.redirectUri.$pristine" class="help-block">
+			          	Redirect URI must be entered.
+			          </span>           
+			      </div>
+			    </div>	
+				<div class="tab-pane fade in active text-center" id="pp">
+				  <p><input type="submit" class="btn btn-primary btn-lg btn-block" ng-disabled="authorizeForm.$invalid" 
+				  				ng-click="submit(authorize, authorizeForm)" value="{{(authorize.msg) ? 'Verify' : ' Get Authorization'}}">
+				  </p>				  
+				</div>			    
+			 </div>
+			 <div ng-show="authorize.code">
+				<div class="form-group">
+				    <div class="left-inner-addon">
+				        <i class="fa fa-envelope"></i>			    
+			          	<label>Message : </label><label>{{authorize.msg}}</label>
+			        </div>
+			    </div>
+			    <div class="form-group">
+			        <div class="left-inner-addon">
+			        	<i class="fa fa-envelope"></i>	
+			          	<label>Authorization Code:</label><label>{{authorize.auth_code}}</label>
+			        </div>
+			    </div>
+			    <div class="form-group">
+			    	<div class="left-inner-addon">
+			        	<i class="fa fa-envelope"></i>	
+			          	<label>Expires In: </label><label>{{authorize.expires_in_sec}}</label>
+				  	</div>
+				</div>
+				
+				<div class="tab-pane fade in active text-center" id="pp">
+				  <p>
+						<a href="#/accesstoken/{{username}}" class="btn btn-primary" ng-click="authorize.code=null">Get Access Token</a>
+				  </p>				  
+				</div>				  	
+			</div>			    				    		    			    	      		
+	      	</form>
+		</div>	      		
+      </div>
+     </div>
+    </div>
+  </div>
+</div>	      		

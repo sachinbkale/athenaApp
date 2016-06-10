@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="col-xs-7">
+       <div class="panel panel-default">
+            <div class="panel-heading text-center">
+            <!-- <div class="centerBlock">Provider</div>-->
+                <h2 class="panel-title" >
+                    What is Athena OAuth&nbsp;<sup>2.0</sup>&nbsp;&nbsp;&nbsp;?
+                </h2>
+
+            </div>
+            <div class="panel-body text-left">
+                <p class="text-center">
+                    <b>Athena OAuth <sup>2.0</sup> Is a free web based token authorization and authentication service based on OAuth 2.0.</b>
+                </p> 						
+ 	               <ul><li>Please <a href="/#/login/new">register</a> to check out for yourself.</li></ul>
+                <ul>
+	                <li>As a <b>Provider</b>, first register your service into the system. This is a one time process per service.</li>
+	                <li><p>At the time of registration, the system will generate a Service ID and a Secret, that uniquely identifies your service into the system. Be sure to save this information. With this information you can give the users, access to your site. </p></li>
+	                <li><p>As a part of OAuth process, the user generates the <b>Authorization Code</b> from the given Service ID and Secret. (The authorization code expires in 6 mins.)</p>
+	                    <p>In the next step, once the Athena OAuth <sup>2.0</sup> system verifies this authorization code and generates <b>Acccess token</b>
+	                    <p>Once the access token is generated, the identity of the user is established for 1 hour. The user can use this <b>Access token</b> to access the providers website.</p>
+	                </li>
+                </ul>
+            </div>
+            <!--
+            <div  class="panel-body text-center">
+                <a href="#/provider/{{username}}" class="btn btn-primary">Register your Service</a>
+            </div>
+            -->
+        </div>
+     </div>
+    <div class="col-xs-2 pull-right" style="width:300px">
+   		<div class="panel panel-default">
+          <div class="panel-heading text-center">Register as a Provider</div>
+          <div class="btn-group" role="group" aria-label="Basic example">
+          </div>
+          <div class="panel-body text-center">
+			<p><a href="#/login/new" class="btn btn-primary custom text-left">Register </a></p>        
+          </div>     
+  		</div>        
+		<div class="panel panel-default">
+          <div class="panel-heading text-center">Do you already have a Service ID & Secret?</div>
+          <div class="btn-group" role="group" aria-label="Basic example">
+          </div>
+          <div class="panel-body text-center">
+			<p><a href="#/authorize/{{username}}" class="btn btn-primary custom text-left">Get Authorization token </a></p>
+			<p><a href="#/accesstoken/{{username}}" class="btn btn-primary custom text-left">Get Access token </a></p>         
+			<p><a href="#/tokenverify/{{username}}" class="btn btn-primary custom text-left">Verify Access token </a></p>         
+          </div>     
+  		</div>  
+	</div>
+</div>

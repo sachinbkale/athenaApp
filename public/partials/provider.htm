@@ -1,0 +1,68 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-2">
+      <!--Sidebar content-->
+		<strong>
+		    <img src="/images/provider_logo.png" alt="Provider Logo" height="110" width="110">    
+		</strong>      
+    </div>
+    <div class="col-xs-10">
+      <!--Body content-->
+      	<div class='container'>      		
+      		<div class="col-md-8">
+	      		<form name="providerForm" novalidate>
+	      		<input type="hidden" name="username" class="form-control input-lg" ng-model="provider.username" value="{{username}}">
+	      		<div><h4>Provider Service Information ({{username}})</h4></div>
+			    <div class="form-group" ng-class="{ 'has-error' : providerForm.username.$invalid && !providerForm.name.$pristine }">
+			      <div class="left-inner-addon">
+			        <i class="fa fa-envelope"></i>
+			        <!-- NAME -->
+			          <input type="text" name="name" class="form-control input-lg" ng-model="provider.name" required placeholder="*Service Name">
+			          <span ng-show="providerForm.name.$invalid && !providerForm.name.$pristine" class="help-block">
+			          	Service name must be entered.
+			          </span>                  
+			      </div>
+			    </div>    
+			    <div class="form-group" ng-class="{ 'has-error' : providerForm.url.$invalid && !providerForm.url.$pristine }">
+			      <div class="left-inner-addon">
+			        <i class="fa fa-envelope"></i>
+			        <!-- URL -->
+			          <input type="text" name="url" class="form-control input-lg" ng-model="provider.url" validate-url required placeholder="*Application Root URL (ex: http://www.examples.com/bookings)">
+			          <span ng-show="providerForm.url.$invalid && !providerForm.url.$pristine" class="help-block">
+			          	Application Root URL (Must begin with http:// or https://).
+			          </span>                  
+			      </div>
+			     </div>
+				<div class="form-group">
+			      <div class="left-inner-addon">
+			        <i class="fa fa-envelope"></i>
+			        <!-- URI -->
+			          <input type="text" name="redirectUri" class="form-control input-lg" ng-model="provider.redirectUri" validate-url required placeholder="Path to your resource (ex: /services/report)">                  
+			      </div>			      			      
+			    </div>
+			    <div class="form-group">
+				    <div class="left-inner-addon">
+				        <i class="fa fa-envelope"></i>
+						<!-- Description -->
+				          <textarea class="form-control input-lg" name="description" rows="3" ng-model="provider.description" placeholder="A brief service description"></textarea>				        
+				    </div>		        
+			    </div>
+				<div class="form-group" ng-show="provider.secret">
+				    <div class="left-inner-addon">
+				        <i class="fa fa-envelope"></i>			    
+			          	<label>Secret : </label><input type="text" name="secret" class="form-control input-sm" ng-model="provider.secret" value="{{provider.secret}}" readonly placeholder="Provider Secret">
+			          	<label>Service ID : </label><input type="text" name="appId" class="form-control input-sm" ng-model="provider.appId" value="{{provider.appId}}" readonly placeholder="Provider Service Id">
+				  	</div>
+			    </div>
+				<div class="tab-pane fade in active text-center" id="pp">
+				  {{providerError}}
+				  <p><input type="submit" class="btn btn-primary btn-lg btn-block" ng-disabled="providerForm.$invalid" 
+				  				ng-click="submit(provider, providerForm)" value="{{(provider.secret) ? 'Add' : 'Generate Id & Secret Key'}}">
+				  </p>				  
+				</div>			    
+	      		</form>
+      		</div>
+      	</div>
+    </div>
+  </div>
+</div>

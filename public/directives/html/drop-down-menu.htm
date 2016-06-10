@@ -1,0 +1,11 @@
+<ul ng-show='menuObject.sub.length > 0' class="nav navbar-nav navbar-right">
+  <li class="dropdown">
+    <a href='{{menuObject.top.url}}' class="dropdown-toggle" data-toggle="dropdown">{{menuObject.top.name}} <b class="caret"></b></a>
+
+    <ul class="dropdown-menu">
+      <li ng-repeat='menu in menuObject.sub'><a href="{{menu.url}}">{{menu.name}}</a></li>
+	  <li class="divider"></li>
+	  <li><a href="/logout">Logout</a></li>       
+    </ul>
+  </li> 
+</ul>

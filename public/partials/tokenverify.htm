@@ -1,0 +1,65 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-2">
+      <!--Sidebar content-->
+		<strong>
+		    <img src="/images/subscriber_logo.jpg" alt="Provider Logo" height="100" width="162"> 
+		    <div>
+		    {{username}}
+		    </div>   
+		</strong>      
+    </div>
+    <div class="col-xs-10">
+      <!--Body content-->
+      	<div class="container col-md-6">
+      	<div class="panel panel-default">
+      		<div class="panel-heading">
+      			<h4>Step 3 : Verify Access Token</h4>
+      		</div>
+      		<div class="panel-body">       	
+	      	 <form name="tokenVerifyForm" novalidate>
+		      	 <div ng-show="!tokenVerify.status">
+				    <div class="form-group" ng-class="{ 'has-error' : tokenVerifyForm.access_token.$invalid && !tokenVerifyForm.access_token.$pristine }">
+				      <div class="left-inner-addon">
+				        <i class="fa fa-envelope"></i>
+				        <!-- Service ID -->
+				          <input type="text" name="access_token" class="form-control input-lg" ng-model="tokenVerify.access_token" required placeholder="Access Token *">
+				          <span ng-show="tokenVerifyForm.access_token.$invalid && !tokenVerifyForm.access_token.$pristine" class="help-block">
+				          	Secret must be entered.
+				          </span>           
+				      </div>
+				    </div>	
+					<div class="tab-pane fade in active text-center" id="pp">
+					  <p><input type="submit" class="btn btn-primary btn-lg btn-block" ng-disabled="tokenVerifyForm.$invalid" 
+					  				ng-click="submit(tokenVerify, tokenVerifyForm)" value="{{(tokenVerify.message) ? 'Verify' : ' Get Authorization'}}">
+					  </p>				  
+					</div>			    
+				 </div>
+				 <div ng-show="tokenVerify.status">
+					<div class="form-group">
+					    <div class="left-inner-addon">
+					        <i class="fa fa-envelope"></i>			    
+				          	<span>Status : </span><span>{{tokenVerify.msg}}</span>
+				        </div>
+				    </div>
+				   <div class="form-group">
+				        <div class="left-inner-addon">
+				        	<i class="fa fa-envelope"></i>	
+				          	<span>Redirect URL:</span><span>{{tokenVerify.client_redirect}}</span>
+				        </div>
+				   </div>
+				   <div class="form-group">
+					<div class="tab-pane fade in active text-center" id="pp">
+					  <p>
+						<a href="#/verify/{{username}}" class="btn btn-primary" ng-click="tokenVerify.status=null">Verify Again</a>
+					  </p>				  
+					</div>				  	
+				  </div>  
+				 </div>			    		    			    	      		
+	      	</form>
+		</div>	      		
+      </div>
+     </div>
+    </div>
+  </div>
+</div>	      		

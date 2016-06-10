@@ -1,0 +1,37 @@
+a {
+  color: #00B7FF;
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+  border:1px solid #e7e7e7;
+}
+
+.text-bottom {
+	position: relative;
+    top: 0%;
+    transform: translateY(100%); 
+    border-color: #e7e7e7;
+  }
+  
+.bg-primary a{
+  background: #428bca; color: black; border: 2px outset #555
+} 
+ nav {
+  margin-top: 60px;
+}
+.custom {
+    width: 200px !important;
+}
